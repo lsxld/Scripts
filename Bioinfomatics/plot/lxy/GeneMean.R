@@ -1,0 +1,17 @@
+########################读文件#################################
+read.table("c:/tmp/BJ1_vs_RV1_fc2.txt",sep="\t",head=T)->data
+########################算均值################################
+Gene=data$TargetID
+tapply(data[[5]],Gene,FUN=mean)->BJ1.Gene
+tapply(data[[7]],Gene,FUN=mean)->RV1.Gene
+######################算FoldChange############################
+(BJ1.Gene-RV1.Gene)->logFC
+Regulate=rep("up",length(logFC))
+Regulate[logFC<0]="down"
+FC=logFC
+FC[Regulate=="up"]=2^(logFC[Regulate=="up"])
+FC[Regulate=="down"]=2^(-logFC[Regulate=="down"])
+####################整合结果#################################
+data.frame(row.names=NULL,TargetID=names(FC),FoldChange_BJ1_VS_RV1=FC,Regulate_BJ1_VS_RV1=Regulate,BJ1=BJ1.Gene,RV1=RV1.Gene)->result
+###################输出文件#####################################
+write.csv(result,"c:/tmp/BJ1_vs_RV1_gene.csv",row.names=F)

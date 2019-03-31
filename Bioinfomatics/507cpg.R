@@ -1,0 +1,43 @@
+#read.table("../data/507ndf.csv",head=T)->five
+searchcpg=function(five)
+{
+seqid=factor(five$seqid)
+contig=levels(seqid)
+prbnum=table(seqid)
+cpg=list()
+length(cpg)=5
+names(cpg)=c("seqid","begin","end","length","probecount")
+lsx=1
+for(id in contig)
+{
+	fivetmp=five[five$seqid==id,]
+	distmp=diff(fivetmp$pos)
+	e=26
+	icpgtmp=superhigh(distmp,e)
+	while(length(icpgtmp)==0)
+	{		
+		cat(lsx,"/",length(contig),id,"not exist CpGs in e=",e,"\n")
+		e=e/1.5
+		if(e<1)
+		{
+			cat(id,"not exsit Cpgs\n")
+			break
+		}
+		icpgtmp=superhigh(distmp,e)
+	}
+	e=26
+	begintmp=fivetmp$pos[c(1,icpgtmp+1)]
+	endtmp=fivetmp$pos[c(icpgtmp,length(fivetmp[[1]]))]
+	cpgcont=length(begintmp)
+	inext=seq(from=length(cpg[[1]])+1,to=length(cpg[[1]])+cpgcont)
+	cpg$begin[inext]=begintmp
+    cpg$end[inext]=endtmp
+    cpg$length[inext]=cpg$end[inext]-cpg$begin[inext]+1
+    cpg$seqid[inext]=rep(id,cpgcont)
+	cpg$probecount[inext]=c(icpgtmp,length(fivetmp[[1]]))-c(1,icpgtmp+1)+1
+	lsx=lsx+1
+}
+cpgtab=as.data.frame(cpg)
+searchcpg=cpgtab
+}
+five=searchcpg(fiveuni)

@@ -1,0 +1,100 @@
+Fatty acid metabolism
+http://soap.genome.jp/tmp/mark_pathway_www3_api20723/hsa00071.gif
+Metabolism of xenobiotics by cytochrome P450
+http://soap.genome.jp/tmp/mark_pathway_www3_api21829/hsa00980.gif
+Tryptophan metabolism
+http://soap.genome.jp/tmp/mark_pathway_www3_api23156/hsa00380.gif
+Calcium signaling pathway
+http://soap.genome.jp/tmp/mark_pathway_www3_api23918/hsa04020.gif
+Epithelial cell signaling in Helicobacter pylori
+http://soap.genome.jp/tmp/mark_pathway_www3_api24590/hsa05120.gif
+Arachidonic acid metabolism
+http://soap.genome.jp/tmp/mark_pathway_www3_api25080/hsa00590.gif
+gamma-Hexachlorocyclohexane degradation
+http://soap.genome.jp/tmp/mark_pathway_www3_api25921/hsa00361.gif
+Linoleic acid metabolism
+http://soap.genome.jp/tmp/mark_pathway_www3_api26609/hsa00591.gif
+PPAR signaling pathway
+http://soap.genome.jp/tmp/mark_pathway_www3_api27472/hsa03320.gif
+Glycolysis / Gluconeogenesis
+http://soap.genome.jp/tmp/mark_pathway_www3_api28207/hsa00010.gif
+Tyrosine metabolism
+http://soap.genome.jp/tmp/mark_pathway_www3_api29109/hsa00350.gif
+Bile acid biosynthesis
+http://soap.genome.jp/tmp/mark_pathway_www3_api682/hsa00120.gif
+Glycine, serine and threonine metabolism
+http://soap.genome.jp/tmp/mark_pathway_www3_api1585/hsa00260.gif
+Glycerolipid metabolism
+http://soap.genome.jp/tmp/mark_pathway_www3_api2444/hsa00561.gif
+Valine, leucine and isoleucine degradation
+http://soap.genome.jp/tmp/mark_pathway_www3_api3167/hsa00280.gif
+beta-Alanine metabolism
+http://soap.genome.jp/tmp/mark_pathway_www3_api3941/hsa00410.gif
+Starch and sucrose metabolism
+http://soap.genome.jp/tmp/mark_pathway_www3_api4559/hsa00500.gif
+Androgen and estrogen metabolism
+http://soap.genome.jp/tmp/mark_pathway_www3_api5611/hsa00150.gif
+Nitrogen metabolism
+http://soap.genome.jp/tmp/mark_pathway_www3_api6534/hsa00910.gif
+B cell receptor signaling pathway
+
+Complement and coagulation cascades
+http://soap.genome.jp/tmp/mark_pathway_www3_api7503/hsa04610.gif
+Propanoate metabolism
+http://soap.genome.jp/tmp/mark_pathway_www3_api8442/hsa00640.gif
+T cell receptor signaling pathway
+
+Glutamate metabolism
+http://soap.genome.jp/tmp/mark_pathway_www3_api9121/hsa00251.gif
+Alanine and aspartate metabolism
+http://soap.genome.jp/tmp/mark_pathway_www3_api9913/hsa00252.gif
+Fructose and mannose metabolism
+http://soap.genome.jp/tmp/mark_pathway_www3_api10963/hsa00051.gif
+Porphyrin and chlorophyll metabolism
+http://soap.genome.jp/tmp/mark_pathway_www3_api11772/hsa00860.gif
+Urea cycle and metabolism of amino groups
+http://soap.genome.jp/tmp/mark_pathway_www3_api12602/hsa00220.gif
+Jak-STAT signaling pathway
+
+Pentose and glucuronate interconversions
+http://soap.genome.jp/tmp/mark_pathway_www3_api13246/hsa00040.gif
+1- and 2-Methylnaphthalene degradation
+http://soap.genome.jp/tmp/mark_pathway_www3_api13741/hsa00624.gif
+Inositol metabolism
+http://soap.genome.jp/tmp/mark_pathway_www3_api14077/hsa00031.gif
+Glycan structures - biosynthesis 1
+
+Pantothenate and CoA biosynthesis
+http://soap.genome.jp/tmp/mark_pathway_www3_api14572/hsa00770.gif
+Alkaloid biosynthesis I
+http://soap.genome.jp/tmp/mark_pathway_www3_api14900/hsa00950.gif
+Sulfur metabolism
+http://soap.genome.jp/tmp/mark_pathway_www3_api15223/hsa00920.gif
+Apoptosis_GenMAPP
+
+Styrene degradation
+http://soap.genome.jp/tmp/mark_pathway_www3_api15651/hsa00643.gif
+Novobiocin biosynthesis
+http://soap.genome.jp/tmp/mark_pathway_www3_api15995/hsa00401.gif
+Parkinson's disease
+
+Ubiquitin mediated proteolysis
+http://soap.genome.jp/tmp/mark_pathway_www3_api16410/hsa04120.gif
+N-Glycan biosynthesis
+http://soap.genome.jp/tmp/mark_pathway_www3_api16957/hsa00510.gif
+Aminoacyl-tRNA biosynthesis
+http://soap.genome.jp/tmp/mark_pathway_www3_api17743/hsa00970.gif
+ATP synthesis
+
+Flagellar assembly
+
+Oxidative phosphorylation
+http://soap.genome.jp/tmp/mark_pathway_www3_api18508/hsa00190.gif
+Photosynthesis
+
+Type III secretion system
+
+Neurodegenerative Disorders
+
+Ubiquinone biosynthesis
+

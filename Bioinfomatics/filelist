@@ -1,0 +1,11 @@
+507cpg.R			找507内的CpG岛（不完善）
+cpgplotana.pl			分析CpGplot的结果
+compare.R			比较507与nimble的共同岛
+cpgi130.pl			CpG搜寻脚本
+cpgseq.pl			给出染色体与位置，提取出序列
+getseq.pl			同上，只不过上面的输入是文件，这个只能一条
+downseq.pl			BioPerl编写的下载序列脚本
+probe2cpg.R
+seprate.R			看里面就知道了
+corrpos.sh corrpos.R校正实验文件中的染色体定位，有原来的pos改为mapview上的位置
+cpgvalue.sh cpgvalue.R 由探针值计算CpG岛的值

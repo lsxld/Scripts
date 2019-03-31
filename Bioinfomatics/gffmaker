@@ -1,0 +1,5 @@
+#!/bin/bash
+input=$1
+output=$2
+
+awk -F "\t" 'BEGIN{v=1}{print $1"\tNimbleCpG\t"$2"\t"$3"\t"$4"\t"v"\t.\t.\tCpGid="$5" Genename="$6" Side="$7" Distance="$8; v=-v}' $input >$output
