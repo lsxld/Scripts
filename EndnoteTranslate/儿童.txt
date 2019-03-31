@@ -1,0 +1,85 @@
+﻿@article{LMM,
+   author = {Mandalakas, A. M. and Highsmith, H. Y. and Harris, N. M. and Pawlicka, A. and Kirchner, H. L.},
+   title = {T-SPOT.TB Performance in Routine Pediatric Practice in a Low TB Burden Setting},
+   journal = {Pediatr Infect Dis J},
+   volume = {37},
+   number = {4},
+   pages = {292-297},
+   note = {Mandalakas, Anna M
+Highsmith, Heather Y
+Harris, Nadine M
+Pawlicka, Anna
+Kirchner, H Lester
+eng
+Evaluation Studies
+Research Support, Non-U.S. Gov't
+2017/11/16 06:00
+Pediatr Infect Dis J. 2018 Apr;37(4):292-297. doi: 10.1097/INF.0000000000001792.},
+   accnum = {29140933},
+   abstract = {BACKGROUND: The T-SPOT.TB, an interferon-gamma release assay, is an indirect test of Mycobacterium tuberculosis infection. Due to sparse and conflicting evidence, the use of interferon-gamma release assay is limited in young and HIV-infected children. We determined the prevalence of invalid, borderline, positive and negative results and associations with key demographic variables during routine pediatric use in a low tuberculosis burden setting. METHODS: For pediatric samples received at Oxford Diagnostic Laboratories between 2010 and 2015, the associations between initial test outcome and demographics were estimated by bivariate analysis and logistic regression. RESULTS: A total of 44,289 samples (median age 12.5 years; interquartile range 7.7-15.5), including 5057 samples (11.6%) from children under 5 years old, were received from 46 U.S. states, Washington, DC and Puerto Rico. A total of 592 samples (1.3%) could not be tested. T-SPOT.TB positivity was strongly correlated (r = 0.60; P < 0.0001) with state TB incidence. Compared with negative results, positive results were more likely in samples from older children (P < 0.0001), public health clinics (P < 0.0001) and rural locations (P = 0.005). Although infrequent (0.6%), invalid results were more common in samples collected at HIV clinics (odds ratio = 2.5, 95% confidence interval: 1.3-4.9) and from younger children (P = 0.03). These invalid results were more likely due to a robust nil (negative) control response rather than a weak mitogen (positive) control response. CONCLUSIONS: The T-SPOT.TB test correlated strongly with well-recognized risk factors for tuberculosis infection and provided evaluable results in 98% of children. To optimize the impact of testing on clinical decision making and patient outcomes, local epidemiology and individual patient risk should be considered when incorporating IGRAs into pediatric guidelines.},
+   keywords = {Adolescent
+Child
+Child, Preschool
+Diagnostic Errors
+Diagnostic Tests, Routine/*methods
+Female
+Humans
+Infant
+Infant, Newborn
+Interferon-gamma Release Tests/*methods
+Male
+Puerto Rico
+Sensitivity and Specificity
+Tuberculosis/*diagnosis
+United States},
+   ISSN = {1532-0987 (Electronic)
+0891-3668 (Linking)},
+   DOI = {10.1097/INF.0000000000001792},
+   url = {http://www.ncbi.nlm.nih.gov/pubmed/29140933},
+   year = {2018},
+   type = {Journal Article},
+}
+
+@article{LMM,
+   author = {Shimizu, H. and Mori, M.},
+   title = {Usefulness of the Combination of Tuberculin Skin Test and Interferon-Gamma Release Assay in Diagnosing Children with Tuberculosis},
+   journal = {Tohoku J Exp Med},
+   volume = {243},
+   number = {3},
+   pages = {205-210},
+   note = {Shimizu, Hiroyuki
+Mori, Masaaki
+eng
+Evaluation Studies
+Japan
+2017/12/01 06:00
+Tohoku J Exp Med. 2017 Nov;243(3):205-210. doi: 10.1620/tjem.243.205.},
+   accnum = {29187669},
+   authoraddr = {Children's Medical Center, Yokohama City University Medical Center.
+Department of Infection Prevention and Control, Yokohama City University Medical Center.
+Department of Lifetime Clinical Immunology, Graduate School, Tokyo Medical and Dental University.},
+   abstract = {Japan is still designated as a medium incidence country, worldwide. Although the definitive diagnosis of tuberculosis is made by detecting pathogen from tissue specimens, collecting those from children is physically difficult. Therefore, we must frequently depend on the results of tuberculin skin test (TST) or interferon-gamma release assay (IGRA). However, the value of IGRA in diagnosing tuberculosis in infants remains unclear. We implemented TST and IGRA concurrently and examined the significance of combining these two tests by analyzing cases where conflicting results were evident from other tests. Subjects included 52 children (24 boys, 28 girls) age 15 years or younger (4.0 +/- 3.4 years) who visited our hospital for close examination after medical checkup for tuberculosis contact tracing. The children underwent TST, T-SPOT((R)).TB, chest plain radiography, and chest computed tomography with a view to tuberculosis diagnosis during a 26-months period from January 2013 to March 2015. T-SPOT results were positive in 9/52 cases (17.3%), and TST results were positive in 12/52 cases (23.1%). Conflicting results were observed in 7/52 cases (13.5%), and all cases were treated as latent tuberculosis infection or incident cases of tuberculosis. The value of T-SPOT in tuberculosis diagnosis in children is still being established. However, there are a number of cases where conflicting results for T-SPOT and TST are indicated. Thus, it is currently desirable to use T-SPOT and TST concomitantly for children at an early age, especially for children below the age of 5 years, as a diagnostic measure in complementing other techniques.},
+   keywords = {Adolescent
+Child
+Child, Preschool
+Female
+Humans
+Incidence
+Infant
+Infant, Newborn
+*Interferon-gamma Release Tests
+Japan/epidemiology
+Male
+Predictive Value of Tests
+Sensitivity and Specificity
+Tuberculin Test
+Tuberculosis/*diagnosis/epidemiology},
+   ISSN = {1349-3329 (Electronic)
+0040-8727 (Linking)},
+   DOI = {10.1620/tjem.243.205},
+   url = {http://www.ncbi.nlm.nih.gov/pubmed/29187669
+https://www.jstage.jst.go.jp/article/tjem/243/3/243_205/_pdf/-char/en},
+   year = {2017},
+   type = {Journal Article},
+}
+
