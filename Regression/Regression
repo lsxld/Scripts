@@ -1,0 +1,6 @@
+#!/bin/tcsh
+setenv PERL_DL_NONLAZY 1
+setenv PERL_TCL_DL_PATH /home/shixliu/ActiveTcl-8.5/lib/libtcl8.5.so
+setenv TCL_LIBRARY /home/shixliu/ActiveTcl-8.5/lib/tcl8.5
+
+/tool/pandora/.package/perl-5.8.8/bin/perl /home/shixliu/tools/Regression/Regression.pl &
