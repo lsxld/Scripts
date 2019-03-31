@@ -1,0 +1,3 @@
+#Use CMD "perl QC_Checker_cmd.pl -h"   to get help information.  
+#Here is an example:
+perl QC_Checker_cmd.pl -i "G:\QC checker\BH13076-1-miRNA-Ag-mouse.doc" -o "BH13076-1-miRNA-Ag-mouse_report.txt" -f "miRNA"
