@@ -5,12 +5,13 @@ import os
 import tkinter.filedialog
 import tkinter.messagebox
 from pptx import Presentation
+import time
 
 gtrans = Translator(service_urls=[
     'translate.google.cn'
 ])
 
-print(gtrans.translate("Apple", src='en', dest='zh-cn'))
+gtrans.translate("Apple", src='en', dest='zh-cn')
 
 infile = ''
 outfile = ''
@@ -20,7 +21,6 @@ def do_translate(instr):
     tmp_save = False
     while(True):
         try:
-            print("Going to translate"+instr)
             result = gtrans.translate(instr, src='en', dest='zh-cn')
             return result.text
         except TimeoutError:
@@ -46,13 +46,13 @@ def do_parse_and_translate_pptx():
             for paragraph in shape.text_frame.paragraphs:
                 for run in paragraph.runs:
                     run.text = do_translate(run.text)
+        time.sleep(1)
     save_output()
     
 def save_output():
     while(True):
         try:
             prs.save(outfile)
-            tkinter.messagebox.showinfo("提示","翻译结果已经生成在%s"%outfile)
             break
         except IOError:
             retry = tkinter.messagebox.askretrycancel("错误", "写入%s失败，请关闭文档后重试"%outfile)
@@ -76,5 +76,5 @@ if(outfile == ''):
     exit()
 
 do_parse_and_translate_pptx()
-
+tkinter.messagebox.showinfo("提示","翻译结果已经生成在%s"%outfile)
     
