@@ -143,7 +143,7 @@ if(infile != ''):
     outfile = infile.replace(".pptx","_zh.pptx")
     yesno = tkinter.messagebox.askyesno("问题","是否使用\'%s\'作为输出文件名"%outfile)
     if(yesno == False):
-        outfile = tkinter.filedialog.asksaveasfilename(title=u"请输入文件名", initialdir=(os.path.expanduser(default_dir)),
+        outfile = tkinter.filedialog.asksaveasfilename(title=u"请输入文件名", initialdir=(os.path.dirname(infile)),
 filetypes=[("PowerPointFile","*.pptx")], defaultextension=".pptx")
 else:
     tkinter.messagebox.showerror("错误","未选择任何文件!")
