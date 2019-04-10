@@ -28,9 +28,11 @@ def do_translate(instr):
 def translate_list(strlist):
     outlist = []
     trstr = strlist[0]
+    gp_num = 1
     for i in range(len(strlist)):
         if(i > 0):
             trstr = trstr + "\n\n\n\n\n\n" + strlist[i]
+            gp_num = gp_num + 1
         if((len(trstr) > 1000) or (i == len(strlist)-1)):
             trans_str = do_translate(trstr)
             split_trans_str = re.split('\n\n\n\n\n\n', trans_str)
@@ -39,13 +41,15 @@ def translate_list(strlist):
     return(outlist)
 
 
-def do_parse_and_translate_pptx(start_slide, end_slide, infile, outfile):
+def do_parse_and_translate_pptx(start_slide, end_slide, infile, outfile, trans_notes=True):
     try:
         prs = Presentation(infile)
     except IOError:
         tkinter.messagebox.showerror('错误', "无法读取文件%s"%infile)
         exit(1)
     num_slides = len(prs.slides)
+    if(end_slide == -1): end_slide = num_slides - 1
+    fail_page = []
     for i in range(num_slides):
         if(i < start_slide): continue
         if(i > end_slide): break
@@ -68,9 +72,25 @@ def do_parse_and_translate_pptx(start_slide, end_slide, infile, outfile):
                                 text_list.append('12345678')
                             else:
                                 text_list.append(run.text)
-
+        if(trans_notes and slide.has_notes_slide):
+            notes_slide = slide.notes_slide
+            for paragraph in notes_slide.notes_text_frame.paragraphs:
+                for run in paragraph.runs:
+                    if(re.match(r'^\s*$', run.text, flags=re.M)):
+                        text_list.append('12345678')
+                    else:
+                        text_list.append(run.text)
         if(len(text_list) > 0):
             trans_text_list = translate_list(text_list)
+            if(len(trans_text_list) != len(text_list)):
+                print("在翻译第%0d页中发生错误"%i)
+                print("英文列表包含%0d个元素"%len(text_list))
+                print(text_list)
+                print("翻译后列表包含%0d个元素"%len(trans_text_list))
+                print(trans_text_list)
+                print("将跳过该页后继续")
+                fail_page.append(str(i+1))
+                continue
             for shape in slide.shapes:
                 if(shape.has_text_frame):
                     for paragraph in shape.text_frame.paragraphs:
@@ -89,6 +109,15 @@ def do_parse_and_translate_pptx(start_slide, end_slide, infile, outfile):
                                     run.text = ''
                                 else:
                                     run.text = tmptext
+            if(trans_notes and slide.has_notes_slide):
+                notes_slide = slide.notes_slide
+                for paragraph in notes_slide.notes_text_frame.paragraphs:
+                    for run in paragraph.runs:
+                        tmptext = trans_text_list.pop(0)
+                        if(tmptext == '12345678'):
+                            run.text = ''
+                        else:
+                            run.text = tmptext
         while(True):
             try:
                 prs.save(outfile)
@@ -102,6 +131,9 @@ def do_parse_and_translate_pptx(start_slide, end_slide, infile, outfile):
                 retry = tkinter.messagebox.askretrycancel("错误", "写入%s失败，请关闭文档后重试"%outfile)
                 if(retry==False):
                     break
+    total_trans_num = end_slide - start_slide + 1
+    tkinter.messagebox.showinfo("提示","翻译结束，结果生成在%s\n共翻译%0d页，成功%0d页，失败%0d页\n错误页码:%s"%(
+        outfile, total_trans_num, total_trans_num-len(fail_page), len(fail_page), ' '.join(fail_page)))
 
 default_dir = os.getcwd()
 infile = tkinter.filedialog.askopenfilename(title=u"选择文件", initialdir=(os.path.expanduser(default_dir)),
@@ -142,6 +174,6 @@ if(yesno == True):
             break
         except:
             print("输入页码非法")
-do_parse_and_translate_pptx(start, end, infile, outfile)
-tkinter.messagebox.showinfo("提示","翻译结果已经生成在%s"%outfile)
+need_trans_notes = tkinter.messagebox.askyesno("问题","是否翻译备注内容")
+do_parse_and_translate_pptx(start, end, infile, outfile, need_trans_notes)
 
