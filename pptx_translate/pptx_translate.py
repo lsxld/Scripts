@@ -135,6 +135,7 @@ def do_parse_and_translate_pptx(start_slide, end_slide, infile, outfile, trans_n
     tkinter.messagebox.showinfo("提示","翻译结束，结果生成在%s\n共翻译%0d页，成功%0d页，失败%0d页\n错误页码:%s"%(
         outfile, total_trans_num, total_trans_num-len(fail_page), len(fail_page), ' '.join(fail_page)))
 
+tkinter.Tk().withdraw()
 default_dir = os.getcwd()
 infile = tkinter.filedialog.askopenfilename(title=u"选择文件", initialdir=(os.path.expanduser(default_dir)),
 filetypes=[("PowerPoint","*.pptx")])
