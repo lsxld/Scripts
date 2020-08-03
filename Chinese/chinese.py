@@ -7,9 +7,11 @@ import time
 from pypinyin import pinyin
 import os
 import webbrowser
+import urllib2
 
 test_num = 30
 repeat_times = 2
+auto_word_num = 10
 test_start = '小睿睿，我们来默写{}个字吧'.format(test_num)
 
 engine = pyttsx3.init()
@@ -29,20 +31,6 @@ for line in f:
     char_list.append(char)
 f.close()
 
-def say_word(word):
-  engine.say(word.decode('UTF-8'))
-  engine.runAndWait()
-
-def test_char(char):
-  show_word = char_db[char]
-  char_pinyin = pinyin(char.decode('UTF-8'))[0][0].encode('UTF-8')
-  show_word = show_word.replace(char, '(' + char_pinyin + ')')
-  print(show_word)
-  for r in range(repeat_times):
-    say_word(char_db[char]+ '的'+ char)
-
-import urllib2
-
 def show_char_gif(char):
   url='http://hanyu.baidu.com/s?wd='+urllib2.quote(char)+'&ptype=zici'
   header = {
@@ -58,7 +46,51 @@ def show_char_gif(char):
 #  with open(imagename, 'wb') as f:
 #    f.write(urllib2.urlopen(imageurl).read())
 #  os.system('open ' + imagename)
-  
+
+def auto_find_word(char):
+  url='http://hanyu.baidu.com/s?wd='+urllib2.quote(char)+'&ptype=zici'
+  header = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.119 Safari/537.36'
+  }
+  request = urllib2.Request(url, headers=header)
+  reponse = urllib2.urlopen(request).read()
+  html = str(reponse)
+  word_list = list()
+  for mobj in re.finditer(r'<a href="\?wd=(.+)&cf=zuci&ptype=term">', html):
+    if mobj.group(1) != char + '组词':
+      word_list.append(mobj.group(1))
+  return word_list
+
+def say_word(word):
+  engine.say(word.decode('UTF-8'))
+  engine.runAndWait()
+
+def test_char(char):
+  show_word = char_db[char]
+  char_pinyin = pinyin(char.decode('UTF-8'))[0][0].encode('UTF-8')
+  show_word = show_word.replace(char, '(' + char_pinyin + ')')
+  print(show_word)
+  for r in range(repeat_times):
+    say_word(char_db[char]+ '的'+ char)
+  if auto_word_num > 0:
+    word_list = auto_find_word(char)
+    show_word = '其他词语: '
+    say = '其他词语还有:'
+    num = 0
+    for word in word_list:
+      show_word = show_word + word + ', '
+      if num <= auto_word_num:
+        say = say + word + ','
+        num = num + 1
+    say = say.rstrip(', ')
+    say = say + '等'
+    show_word = show_word.replace(char, '( )')
+    print(show_word)
+    say_word(say)
+
+      
+      
+
 
 print(test_start)
 say_word(test_start)
