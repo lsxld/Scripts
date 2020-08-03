@@ -61,17 +61,17 @@ def show_char_gif(char):
   
 
 print(test_start)
-#say_word(test_start)
+say_word(test_start)
 index_record = dict()
 for i in range(test_num):
   print('{}. '.format(i + 1)),
-#  say_word('第{}个'.format(i+1))
+  say_word('第{}个'.format(i+1))
   index = random.randint(0, len(char_db)-1)
   while(index in index_record):
     index = random.randint(0, len(char_db)-1)
   index_record[index] = 1
   char = char_list[index]
-#  test_char(char)
+  test_char(char)
   start_time = time.time()
   inp = raw_input("写完按回车，不会的话输入0，然后回车，获得提示:")
   if inp == '0':
