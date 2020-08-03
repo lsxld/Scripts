@@ -1,0 +1,100 @@
+#!/usr/bin/python
+#encoding=utf-8
+import random
+import webbrowser
+import time
+import os
+
+quest_num = 10
+add_max = 100
+op_max = 90
+pass_score = 90
+pass_time = 30
+
+start_time = time.time()
+score = 0
+for i in range(1,quest_num+1):
+    op1 = 0
+    op2 = 0
+    A = 0
+    B = 0
+    C = 0
+    D = 0
+    while True:
+      op1 = random.randint(0, 1)
+      op2 = random.randint(0, 1)
+      A = random.randint(1, op_max)
+      B = random.randint(1, op_max)
+      C = random.randint(1, op_max)
+      if op1 == 0:
+        op1_char = '-'
+        if A - B < 0:
+          continue
+        if op2 == 0:
+          op2_char = '-'
+          D = A - B - C
+          if D < 0:
+            continue
+          break
+        elif op2 == 1:
+          op2_char = '+'
+          D = A - B + C
+          if D > add_max:
+            continue
+          break
+      else:
+        op1_char = '+'
+        if A + B > add_max:
+          continue
+        if op2 == 0:
+          op2_char = '-'
+          D = A + B - C
+          if D < 0:
+            continue
+          break
+        elif op2 == 1:
+          op2_char = '+'
+          D = A + B + C
+          if D > add_max:
+            continue
+          break
+    trynum = 1
+    per_start_time = time.time()
+    while True:
+        calc_str = "(%0d):  %0d %s %0d %s %0d = "%(i,A,op1_char,B,op2_char,C)
+        print(calc_str),
+        d = raw_input('')
+        try:
+            d = int(d)
+        except ValueError:
+            continue
+        result = (D == d)
+        if result:
+            print ' ✅'
+            if trynum == 1: score = score+1
+            break
+        else:
+            print ' ❌'
+        trynum = trynum + 1
+    per_end_time = time.time()
+    per_total_time = int(per_end_time-per_start_time)
+    if per_total_time <= pass_time:
+        print '这道题用了 %0d 秒, 很棒哦❤️ ' % (per_total_time)
+    elif per_total_time <= pass_time * 1.5:
+        print '这道题用了 %0d 秒, 加油哦💛' % (per_total_time)
+    else:
+        print '这道题用了 %0d 秒, 太慢咯, 要认真一些哦💔' % (per_total_time)
+
+score = int(score *100 / quest_num)
+print '你得了 %0d 分'%score
+
+end_time = time.time()
+total_time = int(end_time-start_time)
+avg_time = int(total_time/quest_num)
+print '你一共花了 %0d 秒, 平均一题用了 %0d 秒' % (total_time, avg_time)
+
+#if score > pass_score and avg_time <= pass_time:
+#    for file in os.listdir('/Users/lsxld/Documents/passwd'):
+#        print('iPad 密码是'+file)
+#else:
+#    print('没有达到要求哦，还不能告诉你密码，继续努力吧!')
