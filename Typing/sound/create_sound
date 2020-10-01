@@ -1,0 +1,6 @@
+#!/usr/bin/perl
+$chars = 'qwertyuiopasdfghjklzxcvbnm';
+for($i=0; $i<length($chars); $i++) {
+$c = substr($chars, $i,1);
+system("say -v Alex -o $c.aac $c");
+}
