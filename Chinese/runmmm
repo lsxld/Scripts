@@ -1,3 +1,4 @@
 #!/bin/sh
 filename=`date +%Y_%m_%d_%H_%M_%S`
 script -q /dev/null python /Users/lsxld/Documents/Chinese/chinese.py |tee /Users/lsxld/Documents/Chinese/$filename.txt
+mail -s 'Helen MMM' sxliu01@sina.com,010.lxy@163.com < /Users/lsxld/Documents/Chinese/$filename.txt

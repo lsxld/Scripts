@@ -1,3 +1,4 @@
 #!/bin/sh
 filename=`date +%Y_%m_%d_%H_%M_%S`
 script -q /dev/null python /Users/lsxld/Documents/Math/math3 |tee /Users/lsxld/Documents/Math/$filename.txt
+mail -s 'Helen 123' sxliu01@sina.com,010.lxy@163.com < /Users/lsxld/Documents/Math/$filename.txt

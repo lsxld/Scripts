@@ -11,14 +11,17 @@ import urllib2
 
 test_num = 30
 repeat_times = 2
-auto_word_num = 10
+auto_word_num = 3
+db_path = '/Users/lsxld/Workspace/Scripts/Chinese'
 test_start = '小睿睿，我们来默写{}个字吧'.format(test_num)
 
 engine = pyttsx3.init()
+print(engine.getProperty('voice'))
 
 char_db = dict()
 char_list = list()
-f = open("/Users/lsxld/Workspace/Scripts/Chinese/test_char.db", 'r')
+fail_db = dict()
+f = open(db_path + "/test_char.db", 'r')
 for line in f:
   line = line.rstrip()
   mobj = re.search(r'\((.+)\)', line)
@@ -29,6 +32,17 @@ for line in f:
     word = word.replace(')', '')
     char_db[char] = word
     char_list.append(char)
+f.close()
+f = open(db_path + "/fail_char.db", 'r')
+for line in f:
+  line = line.strip()
+  mobj = re.search(r'(.+)\s+(\d+)', line)
+  if mobj:
+    char = mobj.group(1)
+    num = mobj.group(2)
+    fail_db[char] = int(num)
+  elif line != '':
+    fail_db[line] = 1
 f.close()
 
 def show_char_gif(char):
@@ -95,20 +109,53 @@ def test_char(char):
 print(test_start)
 say_word(test_start)
 index_record = dict()
+fail_char_list = list()
+fail_history_list = fail_db.keys();
+test_char_list = list()
+hint_num = 0
 for i in range(test_num):
   print('{}. '.format(i + 1)),
   say_word('第{}个'.format(i+1))
-  index = random.randint(0, len(char_db)-1)
-  while(index in index_record):
+  if len(fail_history_list) == 0:
     index = random.randint(0, len(char_db)-1)
-  index_record[index] = 1
-  char = char_list[index]
+    while(index in index_record):
+      index = random.randint(0, len(char_db)-1)
+    index_record[index] = 1
+    char = char_list[index]
+  else:
+    char = fail_history_list[0]
+    del fail_history_list[0]
   test_char(char)
+  test_char_list.append(char)
   start_time = time.time()
   inp = raw_input("写完按回车，不会的话输入0，然后回车，获得提示:")
   if inp == '0':
-    print("提示: "+char_db[char])
+    if char in fail_db:
+      fail_db[char] = fail_db[char] + 2
+    else:
+      fail_db[char] = 3
+    hint_num = hint_num + 1
+    fail_char_list.append(char)
     show_char_gif(char)
     raw_input('按回车继续')
+  elif char in fail_db:
+    if fail_db[char] == 1:
+      del fail_db[char]
+    else:
+      fail_db[char] = fail_db[char] - 1
   end_time = time.time()
   print('这题用了{}秒'.format(int(end_time-start_time+1)))
+f = open(db_path + "/fail_char.db", 'w')
+for key,value in fail_db.items():
+  f.write('{} {}\n'.format(key, value))
+f.close()
+test_last = "小睿睿, 祝贺你, 默写完成啦, 这次你有{}个字不会写, 继续加油啊!".format(hint_num)
+print("提示次数: {}".format(hint_num))
+for c in fail_char_list:
+  print("提示的字: "+c)
+for i,c in enumerate(test_char_list):
+  if((i+1) % 5 == 0):
+    print(c)
+  else:
+    print("{} ".format(c)),
+say_word(test_last)
