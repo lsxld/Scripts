@@ -2,4 +2,4 @@
 export TK_SILENCE_DEPRECATION=1
 filename=`date +%Y_%m_%d_%H_%M_%S`
 script -q /dev/null python3 /Users/lsxld/WorkSpace/Scripts/Typing/typing_training.py |tee /Users/lsxld/Documents/Typing/$filename.txt
-#mail -s 'Helen Typing' sxliu01@sina.com,010.lxy@163.com < /Users/lsxld/Documents/Typing/$filename.txt
+mail -s 'Helen Typing' sxliu01@sina.com,010.lxy@163.com < /Users/lsxld/Documents/Typing/$filename.txt

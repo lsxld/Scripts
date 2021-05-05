@@ -22,7 +22,8 @@ class Typing(tkinter.Tk):
         self.hide_char = False
         self.sound_path = '/Users/lsxld/Workspace/Scripts/Typing/sound'
         self.score_record_interval = 100
-        self.score_target = 200
+        self.score_target = 3000
+        self.speed_100 = 70
 
     def setup_UI(self):
         self.title("Typing Exercise")
@@ -105,11 +106,11 @@ class Typing(tkinter.Tk):
     def score_eval(self):
         final_score = 0
         eval_word = ''
-        if self.speed >= 70:
+        if self.speed >= self.speed_100:
             final_score = 100
             eval_word = '小睿睿, 你这次得了100分, 真是太棒棒啦'
         else:
-            final_score = int(self.speed / 80 * 100)
+            final_score = int(self.speed / self.speed_100 * 100)
             eval_word = f'小睿睿, 你这次得了{final_score}分, 继续加油哦'
         self.canvas.itemconfigure(self.char_id, text=f"{final_score}")
         self.update()

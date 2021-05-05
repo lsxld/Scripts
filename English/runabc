@@ -1,8 +1,8 @@
 #!/bin/sh
-#filename=`date +%Y_%m_%d_%H_%M_%S`
-#script -q /dev/null python /Users/lsxld/Workspace/Scripts/English/english.py |tee /Users/lsxld/Documents/English/$filename.txt
+filename=`date +%Y_%m_%d_%H_%M_%S`
+script -q /dev/null python /Users/lsxld/Workspace/Scripts/English/english.py |tee /Users/lsxld/Documents/English/$filename.txt
 #mail -s 'Helen ABC' sxliu01@sina.com,010.lxy@163.com < /Users/lsxld/Documents/English/$filename.txt
 
 
 #open "https://www.education.com/games/play?childId=2991870#typing,typing"
-open "https://www.typing.com/student/game/type-a-balloon"
+#open "https://www.typing.com/student/game/type-a-balloon"

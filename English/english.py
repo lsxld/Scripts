@@ -53,7 +53,7 @@ def say_word(word, chn=False):
   engine.runAndWait()
 
 print(test_start)
-say_word(test_start)
+#say_word(test_start)
 index_record = dict()
 fail_word_list = list()
 fail_history_list = fail_db.keys();
@@ -68,9 +68,10 @@ for i in range(test_num):
   else:
     word = fail_history_list[0]
     del fail_history_list[0]
-  chn_word = gtrans.translate(word, src='en', dest='zh-cn').text.encode('UTF-8')
+  #chn_word = gtrans.translate(word, src='en', dest='zh-cn').text.encode('UTF-8')
+  chn_word = 'abc'
   say_word('Number {}'.format(i+1))
-  print('No.{} 输入听到的句子, 输入0回车 提示英文:'.format(i+1))
+  print('No.{} 输入听到的句子, 输入0回车 提示中文:'.format(i+1))
   say_word(word)
   start_time = time.time()
   inp = raw_input()
